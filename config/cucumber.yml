@@ -1,5 +1,9 @@
 <%
   config_requires = "--require config"
   pretty_format = "-f pretty"
+  debug = "--tags '@debug'"
+  not_debug = "--tags 'not @debug'"
+
 %>
-default: <%= config_requires %> <%= pretty_format %>
+default: <%= config_requires %> <%= pretty_format %> <%= not_debug %>
+debug: <%= config_requires %> <%= pretty_format %> <%= debug %>
