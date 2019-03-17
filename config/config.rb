@@ -7,6 +7,7 @@ BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 
 # Define the directories of variables to scan for Ruby files and load
 [
+    'page_objects',
     'step_definitions',
     'support'
 ].each do |dir|
