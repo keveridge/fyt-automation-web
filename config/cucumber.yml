@@ -1,0 +1,5 @@
+<%
+  config_requires = "--require config"
+  pretty_format = "-f pretty"
+%>
+default: <%= config_requires %> <%= pretty_format %>
