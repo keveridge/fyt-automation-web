@@ -3,7 +3,7 @@
 ######
 
 Given /^I'm on the (\w+) page$/ do |page|
-  pending
+  HomePage.new.navigate_to
 end
 
 
@@ -12,7 +12,14 @@ end
 ######
 
 Then /^I must see the following navigation elements:$/ do |table|
-  pending
+  page = HomePage.new
+  table.raw.each do |row|
+    begin
+      page.send("#{row.first}_nav")
+    rescue NoMethodError
+      raise "No selector method exists for the `#{row.first}` navigation element in the #{page.class.name} page object"
+    end
+  end
 end
 
 
@@ -22,11 +29,11 @@ end
 ######
 
 When /^I click on the (\w+) navigation item$/ do |nav_item|
-  pending
+  HomePage.new.send("#{nav_item}_nav").click
 end
 
 Then /^I am taken to the (\w+) page$/ do |page|
-  pending
+  Object.const_get("#{page.capitalize}Page").new.verify
 end
 
 
@@ -35,5 +42,22 @@ end
 ######
 
 Then /^I see the cart panel appear$/ do
-  pending
+  expect(HomePage.new.has_cart_container?).to be true
+end
+
+
+######
+# Scenario: Close cart panel
+######
+
+And /^the cart panel is displayed$/ do
+  HomePage.new.cart_nav.click
+end
+
+When /^I click outside of the cart panel$/ do
+  HomePage.new.click_outside_cart_container
+end
+
+Then /^the cart panel is no longer displayed$/ do
+  expect(HomePage.new.has_cart_container?).to be false
 end

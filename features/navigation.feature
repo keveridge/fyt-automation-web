@@ -28,3 +28,9 @@ Feature: Primary navigation
     When I click on the cart navigation item
     Then I see the cart panel appear
 
+
+  Scenario: Close cart panel
+
+    And the cart panel is displayed
+    When I click outside of the cart panel
+    Then the cart panel is no longer displayed

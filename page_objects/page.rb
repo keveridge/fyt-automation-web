@@ -16,20 +16,23 @@ class Page
 
   def navigate_to
     visit @page_path
-    verify_page_load
+    disable_css_animations
+    verify
   end
 
 
   # Verification methods
 
-  def verify_page_load
-    # Check that this page has header or footer tags
-    begin
-      find 'header'
-      find 'footer'
-    rescue
-      raise 'Current page does not adhere to the expected site template or did not load correctly'
-    end
+  def verify
+    expect(page).to have_current_path(@page_path)
+  end
+
+
+  private
+
+  def disable_css_animations
+    # As selectors won't wait for animations to complete before executing, disable them.
+    page.execute_script(File.read("#{BASE_DIR}/support/js/disable_animations.js"))
   end
 
 end
