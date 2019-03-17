@@ -34,3 +34,22 @@ Feature: Primary navigation
     And the cart panel is displayed
     When I click outside of the cart panel
     Then the cart panel is no longer displayed
+
+
+  Scenario: Open currency selector
+
+    When I click on the currency selector
+    Then I see the following currencies:
+      | USD |
+      | EUR |
+
+
+  Scenario Outline: Select a currency
+
+    When I select <currency> as a currency
+    Then I see the prices are in <currency_symbol>'s
+
+    Examples:
+      | currency  | currency_symbol |
+      | USD       | $               |
+      | EUR       | €               |

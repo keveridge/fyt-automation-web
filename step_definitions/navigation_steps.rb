@@ -61,3 +61,29 @@ end
 Then /^the cart panel is no longer displayed$/ do
   expect(HomePage.new.has_cart_container?).to be false
 end
+
+
+######
+# Scenario: Open currency selector
+######
+
+When /^I click on the currency selector$/ do
+  pending
+end
+
+Then /^I see the following currencies:$/ do |table|
+  pending
+end
+
+
+######
+# Scenario: Select a currency
+######
+
+When /^I select (\w+) as a currency$/ do |currency|
+  pending
+end
+
+Then /^I see the prices are in (.)'s$/ do |currency_symbol|
+  pending
+end
