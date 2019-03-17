@@ -33,6 +33,10 @@ module HeaderNavigation
 
   # Validation methods
 
+  def has_main_navigation?(item:)
+    has_css? 'header nav a.nav-link span ', text: item
+  end
+
   def has_cart_container?
     has_css?(cart_container_css)
   end

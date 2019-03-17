@@ -14,11 +14,7 @@ end
 Then /^I must see the following navigation elements:$/ do |table|
   page = HomePage.new
   table.raw.each do |row|
-    begin
-      page.send("#{row.first}_nav")
-    rescue NoMethodError
-      raise "No selector method exists for the `#{row.first}` navigation element in the #{page.class.name} page object"
-    end
+    expect(page.has_main_navigation?(item:row.first)).to be true
   end
 end
 

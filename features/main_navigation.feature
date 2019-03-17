@@ -1,14 +1,15 @@
-Feature: Primary navigation
+Feature: Main navigation
 
   Background:
     Given I'm on the home page
 
+
   Scenario: Navigation visible
 
     Then I must see the following navigation elements:
-      | login     |
-      | wishlist  |
-      | cart      |
+      | Log in     |
+      | Wishlist  |
+      | Cart      |
 
 
   Scenario: Login item
