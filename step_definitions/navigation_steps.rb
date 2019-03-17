@@ -68,11 +68,15 @@ end
 ######
 
 When /^I click on the currency selector$/ do
-  pending
+  HomePage.new.currency_selector.click
 end
 
 Then /^I see the following currencies:$/ do |table|
-  pending
+  page = HomePage.new
+  table.raw.each do |row|
+    raise "Currency #{row.first} not found in currency dropdown" \
+      unless page.has_currency_selector_currency?(currency:row.first)
+  end
 end
 
 
@@ -81,9 +85,9 @@ end
 ######
 
 When /^I select (\w+) as a currency$/ do |currency|
-  pending
+  HomePage.new.select_currency(currency:currency)
 end
 
-Then /^I see the prices are in (.)'s$/ do |currency_symbol|
-  pending
+Then /^I see the featured products prices are in (.)'s$/ do |currency_symbol|
+  expect(HomePage.new.has_prices_in_currency?(currency_symbol:currency_symbol)).to be true
 end

@@ -47,7 +47,7 @@ Feature: Primary navigation
   Scenario Outline: Select a currency
 
     When I select <currency> as a currency
-    Then I see the prices are in <currency_symbol>'s
+    Then I see the featured products prices are in <currency_symbol>'s
 
     Examples:
       | currency  | currency_symbol |
