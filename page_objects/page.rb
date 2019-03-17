@@ -1,4 +1,5 @@
 require_relative 'modules/header_navigation'
+require_relative 'modules/footer_navigation'
 
 class Page
 
@@ -6,6 +7,7 @@ class Page
   include Capybara::DSL
 
   include HeaderNavigation
+  include FooterNavigation
 
   def initialize(page_path:)
     @page_path = page_path
