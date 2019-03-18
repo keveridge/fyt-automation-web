@@ -9,6 +9,13 @@ class TestData
       'http://localhost:8081'
     end
 
+    def search_term(type:)
+      {
+          :popular => 'apple',
+          :valid => 'camera'
+      }[type.to_sym]
+    end
+
   end
 
 end

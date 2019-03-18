@@ -7,7 +7,7 @@ Feature: Search autocomplete
   Scenario: Results container
 
     When I enter a valid search term
-    Then I see a the search results container appear
+    Then I see the search results container appear
 
 
   Scenario: Results types

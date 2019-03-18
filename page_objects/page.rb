@@ -1,4 +1,5 @@
 require_relative 'modules/header_navigation'
+require_relative 'modules/search_autocomplete'
 require_relative 'modules/footer_navigation'
 
 class Page
@@ -8,8 +9,9 @@ class Page
 
   include HeaderNavigation
   include FooterNavigation
+  include SearchAutocomplete
 
-  def initialize(page_path:)
+  def initialize(page_path:nil)
     @page_path = page_path
   end
 

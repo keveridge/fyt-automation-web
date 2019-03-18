@@ -2,12 +2,12 @@
 # Scenario: Search container
 ######
 
-When /^I enter a valid search term$/ do
-  pending
+When /^I enter a (\w+) search term$/ do |search_term_type|
+  Page.new.autocomplete_search(search_terms: TestData::search_term(type:search_term_type))
 end
 
-Then /^I see a the search results container appear$/ do
-  pending
+Then /^I see the search results container appear$/ do
+  expect(Page.new.autocomplete_results_displayed?).to be true
 end
 
 
@@ -31,10 +31,6 @@ end
 # Scenario: Manufacturer results
 # Scenario: Product results
 ######
-
-When /^I enter a popular search term$/ do
-  pending
-end
 
 Then /^I see one or more (\w+) search results$/ do |results_type|
   pending
