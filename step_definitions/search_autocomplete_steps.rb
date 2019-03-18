@@ -16,12 +16,13 @@ end
 ######
 
 When /^the search results container appears$/ do
-  pending
+  Page.new.autocomplete_search(search_terms: TestData::search_term(type: :valid))
 end
 
 Then /^I see the following search result types:$/ do |table|
+  page = Page.new
   table.raw.each do |row|
-    pending
+    expect(page.has_autocomplete_results_type?(type:row.first)).to be true
   end
 end
 
@@ -33,7 +34,7 @@ end
 ######
 
 Then /^I see one or more (\w+) search results$/ do |results_type|
-  pending
+  expect(autocomplete_search_results(type:results_type).count).to be > 0
 end
 
 And /^for each (\w+) search result I see:$/ do |results_type, table|
