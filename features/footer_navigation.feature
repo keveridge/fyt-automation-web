@@ -7,16 +7,22 @@ Feature: Footer navigation
   Scenario: Navigation visible
 
     Then I must see the following footer navigation elements:
-      | Sitemap                   |
-      | Shipping & returns        |
-      | Privacy notice            |
-      | Conditions of Use         |
-      | About us                  |
-      | Contact us                |
-      | Search                    |
-      | News                      |
-      | Blog                      |
-      | Recently viewed products  |
-      | Compare products list     |
-      | New products              |
+      | Information | Sitemap                   |
+      | Information | Shipping & returns        |
+      | Information | Privacy notice            |
+      | Information | Conditions of Use         |
+      | Information | About us                  |
+      | Information | Contact us                |
+      | Information | Search                    |
+      | Information | News                      |
+      | Information | Blog                      |
+      | Information | Recently viewed products  |
+      | Information | Compare products list     |
+      | Information | New products              |
+      | My Account  | My account                |
+      | My Account  | Orders                    |
+      | My Account  | Addresses                 |
+      | My Account  | Cart                      |
+      | My Account  | Wishlist                  |
+      | My Account  | Apply for vendor account  |
 
