@@ -1,13 +1,4 @@
 ######
-# Background
-######
-
-Given /^I'm on the (\w+) page$/ do |page|
-  HomePage.new.navigate_to
-end
-
-
-######
 # Scenario: Navigation visible
 ######
 

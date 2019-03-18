@@ -1,7 +1,7 @@
 Feature: Search autocomplete
 
   Background:
-    Given I'm on the homepage
+    Given I'm on the home page
 
 
   Scenario: Results container
