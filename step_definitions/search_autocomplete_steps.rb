@@ -34,9 +34,14 @@ end
 ######
 
 Then /^I see one or more (\w+) search results$/ do |results_type|
-  expect(autocomplete_search_results(type:results_type).count).to be > 0
+  expect(Page.new.autocomplete_search_results(type:results_type).count).to be > 0
 end
 
 And /^for each (\w+) search result I see:$/ do |results_type, table|
-  pending
+  page = Page.new
+  page.autocomplete_search_results(type:results_type).each do |result|
+    table.raw.each do |row|
+      expect(page.has_autocomplete_search_result_element?(result:result, type:results_type, element:row.first)).to be true
+    end
+  end
 end
