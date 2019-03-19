@@ -54,8 +54,8 @@ $ brew install chromedriver
 ### Clone the repo and install the gem dependencies
 Clone the repo and install the project dependencies by executing the following commands:
 ```
-$ git clone git@bitbucket.org:tigerspike/global-tigerspike-partner-portal-test-automation.git
-$ cd global-tigerspike-partner-portal-test-automation
+$ git clone git@bitbucket.org:keverdige/fyt-automation-web.git
+$ cd fyt-automation-web
 $ gem install bundler
 $ bundler install
 ```
