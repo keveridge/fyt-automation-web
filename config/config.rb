@@ -1,6 +1,7 @@
 require 'capybara/cucumber'             # Capybara Cucumber support
 require 'rspec'                         # Framework for test expectations
 require 'pry-byebug'                    # A runtime interactive debugging tool
+require_relative 'hooks'
 
 # Define constants
 BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
