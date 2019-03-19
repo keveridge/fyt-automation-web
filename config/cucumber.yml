@@ -1,0 +1,13 @@
+<%
+  config_requires = "--require config/config.rb"
+  full_execution = "--require config/options/full_execution.rb"
+  pretty_format = "-f pretty"
+  debug = "--tags '@debug'"
+  not_debug = "--tags 'not @debug'"
+  env_prod = "FYT_ENVIRONMENT=prod"
+
+%>
+default: <%= config_requires %> <%= full_execution %> <%= pretty_format %> <%= not_debug %>
+fast: <%= config_requires %> <%= pretty_format %> <%= not_debug %>
+prod: <%=env_prod%> <%= config_requires %> <%= pretty_format %> <%= not_debug %>
+debug: <%= config_requires %> <%= pretty_format %> <%= debug %>
