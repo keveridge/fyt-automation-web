@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  fyt_grandnode:
+    image: 'grandnode/develop'
+    ports:
+      - "8081:80"
+  fyt_mongodb:
+    image: 'bitnami/mongodb:3.6'
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_USERNAME=grandnode
+      - MONGODB_PASSWORD=password123
+      - MONGODB_DATABASE=grandnode
+    volumes:
+      - 'fyt_mongodb_data:/bitnami'
+
+volumes:
+  fyt_mongodb_data:
+    driver: local
