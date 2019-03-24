@@ -1,13 +1,26 @@
 module SearchAutocomplete
 
+  # Selector methods
+
+  def nav_search_button
+    find 'nav li a.nav-link span', text: 'search'
+  end
+
+
   # Service methods
 
   def autocomplete_search(search_terms:)
+    nav_search_button.click unless autocomplete_search_box_display? # If this is a mobile view, click the button
+                                                                    # to display the text box
     fill_in autocomplete_search_box_id, with: search_terms
   end
 
 
   # Validation methods
+
+  def autocomplete_search_box_display?
+    has_css? "\##{autocomplete_search_box_id}"
+  end
 
   def autocomplete_results_displayed?
     has_css? "\##{autocomplete_search_box_id}"
@@ -24,6 +37,7 @@ module SearchAutocomplete
   def autocomplete_search_results(type:)
     find_all autocomplete_search_result_css(type:type)
   end
+
 
   private
 
