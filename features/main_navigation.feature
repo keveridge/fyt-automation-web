@@ -36,13 +36,24 @@ Feature: Main navigation
     When I click outside of the cart panel
     Then the cart panel is no longer displayed
 
-
+    
+  @desktop
   Scenario: Open currency selector
 
     When I click on the currency selector
     Then I see the following currencies:
       | USD |
       | EUR |
+
+
+  @mobile
+  Scenario: Open currency selector
+
+     And I click on the menu button
+     When I click on the currency selector
+     Then I see the following currencies:
+       | USD |
+       | EUR |
 
 
   Scenario Outline: Select a currency
