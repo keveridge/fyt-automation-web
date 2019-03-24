@@ -11,6 +11,28 @@ end
 
 
 ######
+# Scenario: Menu button visible
+######
+
+Then /^I must see a menu button in the navigation bar$/ do
+  expect(HomePage.new.mobile_menu_button_visible?).to be true
+end
+
+
+######
+# Scenario: Open menu
+######
+
+When /^I click the menu button in the navigation bar$/ do
+  HomePage.new.mobile_menu_button.click
+end
+
+Then /^I see the mobile navigation menu appear$/ do
+  expect(HomePage.new.mobile_menu_panel_visible?).to be true
+end
+
+
+######
 # Scenario: Login item
 # Scenario: Wishlist item
 ######
@@ -55,7 +77,7 @@ end
 ######
 
 When /^I click on the currency selector$/ do
-  HomePage.new.currency_selector.click
+  HomePage.new.click_currency_selector
 end
 
 Then /^I see the following currencies:$/ do |table|

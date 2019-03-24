@@ -7,9 +7,22 @@ Feature: Main navigation
   Scenario: Navigation visible
 
     Then I must see the following navigation elements:
-      | Log in     |
-      | Wishlist  |
-      | Cart      |
+      | Log in      |
+      | Wishlist    |
+      | Cart        |
+
+
+  @mobile
+  Scenario: Menu button visible
+
+    Then I must see a menu button in the navigation bar
+
+
+  @mobile
+  Scenario: Open menu
+
+    When I click the menu button in the navigation bar
+    Then I see the mobile navigation menu appear
 
 
   Scenario: Login item
@@ -36,24 +49,13 @@ Feature: Main navigation
     When I click outside of the cart panel
     Then the cart panel is no longer displayed
 
-    
-  @desktop
+
   Scenario: Open currency selector
 
     When I click on the currency selector
     Then I see the following currencies:
       | USD |
       | EUR |
-
-
-  @mobile
-  Scenario: Open currency selector
-
-     And I click on the menu button
-     When I click on the currency selector
-     Then I see the following currencies:
-       | USD |
-       | EUR |
 
 
   Scenario Outline: Select a currency
