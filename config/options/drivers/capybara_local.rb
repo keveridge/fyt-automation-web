@@ -1,5 +1,14 @@
 require_relative '../../../config/configdata'
 require 'capybara/cucumber'                   # Capybara Cucumber support
+require 'selenium/webdriver'
+require 'pp'
+
+caps = Selenium::WebDriver::Remote::Capabilities.firefox()
+caps['platform'] = 'Windows 10'
+caps['version'] = '35.0'
+
+binding.pry
+
 
 # Create an instance of Capybara
 Capybara.register_driver :chrome do |driver, path|
