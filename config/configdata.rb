@@ -13,7 +13,9 @@ class ConfigData
 
     def driver_file
       {
-        :capybara => 'options/drivers/capybara_local'
+        :capybara => 'options/drivers/capybara_local',
+        :browserstack => 'options/drivers/browserstack',
+        :saucelabs => 'options/drivers/saucelabs'
       }[driver.to_sym]
     end
 
