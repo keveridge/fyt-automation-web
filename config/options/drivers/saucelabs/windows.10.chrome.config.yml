@@ -1,0 +1,6 @@
+# SauceLabs Platform configuration tool: https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
+browser: 'chrome'
+caps:
+  platform: 'Windows 10'
+  version: '62.0'
+  screenResolution: '1400x1050'
