@@ -87,6 +87,8 @@ module HeaderNavigation
     has_css? mobile_menu_panel_css
   end
 
+
+
   private
 
   # Private selector methods
