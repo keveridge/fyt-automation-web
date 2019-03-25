@@ -1,10 +1,12 @@
-require 'capybara/cucumber'             # Capybara Cucumber support
 require 'rspec'                         # Framework for test expectations
 require 'pry-byebug'                    # A runtime interactive debugging tool
 require_relative 'hooks'
+require_relative 'configdata'
+require_relative ConfigData.driver_file
 
 # Define constants
 BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
+IS_MOBILE = (ENV.has_key?('FYT_MOBILE') && ENV['FYT_MOBILE'] == 'true') ? true : false
 
 # Define the directories of variables to scan for Ruby files and load
 [
@@ -17,15 +19,3 @@ BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
   $LOAD_PATH.unshift(dir)
 end
 
-# Create an instance of Capybara
-Capybara.register_driver :chrome do |driver, path|
-   opts = {
-       :browser => :chrome
-   }
-   Capybara::Selenium::Driver.new(driver, opts)
-end
-
-Capybara.javascript_driver = :chrome
-Capybara.default_driver = :chrome
-
-Capybara.app_host = TestData.base_url

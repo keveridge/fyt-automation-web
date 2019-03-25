@@ -1,0 +1,6 @@
+# SauceLabs Platform configuration tool: https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
+browser: 'safari'
+caps:
+  platform: 'macOS 10.14'
+  version: '12.0'
+  screenResolution: '1400x1050'
