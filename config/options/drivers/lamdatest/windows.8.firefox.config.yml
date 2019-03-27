@@ -1,0 +1,6 @@
+# LamdaTest configuration tool: https://www.lambdatest.com/capabilities-generator/
+caps:
+  browserName: 'Firefox'
+  version: '66.0'
+  platform: 'Windows 8'
+  resolution: '1440x900'

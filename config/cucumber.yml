@@ -3,6 +3,8 @@
   full_execution = "--require config/options/full_execution.rb"
   browserstack = "FYT_DRIVER=browserstack"
   saucelabs = "FYT_DRIVER=saucelabs"
+  lamdatest = "FYT_DRIVER=lamdatest"
+  local = "FYT_DRIVER=local"
   pretty_format = "-f pretty"
   debug = "--tags '@debug'"
   not_debug = "--tags 'not @debug'"
@@ -10,10 +12,11 @@
   mobile = "--tags 'not @desktop' FYT_MOBILE=true"
   desktop = "--tags 'not @mobile' FYT_MOBILE=false"
 %>
-default: <%= config_requires %> <%= desktop %> <%= full_execution %> <%= pretty_format %> <%= not_debug %>
-fast: <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= not_debug %>
-prod: <%= config_requires %> <%= desktop %> <%= env_prod %> <%= pretty_format %> <%= not_debug %>
+default: <%= local %> <%= config_requires %> <%= desktop %> <%= full_execution %> <%= pretty_format %> <%= not_debug %>
+fast: <%= local %> <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= not_debug %>
+prod: <%= local %> <%= config_requires %> <%= desktop %> <%= env_prod %> <%= pretty_format %> <%= not_debug %>
 browserstack: <%= browserstack %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
 saucelabs: <%= saucelabs %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
-mobile: <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
-debug: <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= debug %>
+lamdatest: <%= lamdatest %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
+mobile: <%= local %> <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
+debug: <%= local %> <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= debug %>
