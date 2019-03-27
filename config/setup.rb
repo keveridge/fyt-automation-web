@@ -27,6 +27,7 @@ require_relative ConfigData.driver_file # Run individual remote driver setup cod
 # Define constants
 BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 IS_MOBILE = (ENV.has_key?('FYT_MOBILE') && ENV['FYT_MOBILE'] == 'true') ? true : false
+IS_REMOTE = (ConfigData.driver.to_sym != :local) ? true : false
 
 # Define the directories of variables to scan for Ruby files and load
 [
