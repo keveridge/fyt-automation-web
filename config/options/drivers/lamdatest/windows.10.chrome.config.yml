@@ -1,6 +1,6 @@
-# SauceLabs Platform configuration tool: https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
-browser: 'chrome'
+# LamdaTest configuration tool: https://www.lambdatest.com/capabilities-generator/
 caps:
+  browserName: 'chrome'
+  version: '64.0'
   platform: 'Windows 10'
-  version: '62.0'
-  screenResolution: '1400x1050'
+  resolution: '1440x900'

@@ -1,6 +1,6 @@
 # LamdaTest configuration tool: https://www.lambdatest.com/capabilities-generator/
 caps:
-  browserName: 'chrome'
-  version: '64.0'
-  platform: 'Windows 7'
-  resolution: '1440x900'
+  browserName: 'Safari'
+  version: '12.0'
+  platform: 'macOS Mojave'
+  resolution: '1600x1200'

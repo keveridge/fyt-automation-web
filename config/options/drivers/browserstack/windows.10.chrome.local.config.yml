@@ -1,17 +1,8 @@
 # BrowserStack Capabilities Generator Tool: https://www.browserstack.com/automate/capabilities
-server: "hub-cloud.browserstack.com"
-
-common_caps:
-  "build": "capybara-browserstack"
-  "browserstack.debug": true
-
-browser_caps:
-  -
-    "os": "Windows"
-    "os_version": "10"
-    "resolution": "1440x900"
-    "browser": "Chrome"
-    "browser_version": "73.0"
-    "browserstack.local": "false"
-    "browserstack.selenium_version": "3.14.0"
-    "browserstack.local": true
+caps:
+  os: 'Windows'
+  os_version: '10'
+  resolution: '1440x900'
+  browser: 'Chrome'
+  browser_version: '73.0'
+  browserstack.local: 'true'

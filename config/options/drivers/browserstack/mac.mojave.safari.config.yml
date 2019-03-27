@@ -1,17 +1,8 @@
 # BrowserStack Capabilities Generator Tool: https://www.browserstack.com/automate/capabilities
-server: "hub-cloud.browserstack.com"
-
-common_caps:
-  "build": "capybara-browserstack"
-  "browserstack.debug": true
-
-browser_caps:
-  -
-    "browser": "chrome"
-    "os": "OS X"
-    "resolution": "1440x900"
-    "os_version": "Mojave"
-    "browser": "Safari"
-    "browser_version": "12.0"
-    "browserstack.local": "false"
-    "browserstack.selenium_version": "3.14.0"
+caps:
+  os: 'OS X'
+  os_version: 'Mojave'
+  resolution: '1600x1200'
+  browser: 'Safari'
+  browser_version: '12.0'
+  browserstack.local: 'false'
