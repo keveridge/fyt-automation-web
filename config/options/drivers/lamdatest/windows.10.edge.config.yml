@@ -1,0 +1,6 @@
+# LamdaTest configuration tool: https://www.lambdatest.com/capabilities-generator/
+caps:
+  browserName: 'MicrosoftEdge'
+  version: '18.0'
+  platform: 'Windows 10'
+  resolution: '1440x900'
