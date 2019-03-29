@@ -14,6 +14,7 @@ CONFIG['user'] = ENV[USERNAME_VAR]
 CONFIG['key'] = ENV[ACCESS_KEY_VAR]
 
 Capybara.register_driver :browserstack do |app|
+
   @caps = ConfigData.default_caps
 
   CONFIG['caps'].keys.each do |cap|

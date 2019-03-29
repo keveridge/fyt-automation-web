@@ -1,10 +1,7 @@
 # BrowserStack Capabilities Generator Tool: https://www.browserstack.com/automate/capabilities
-breakpoint: 'desktop'
+breakpoint: 'mobile'
 caps:
-  os: 'Windows'
-  os_version: '7'
-  resolution: '1440x900'
-  browser: 'Firefox'
-  browser_version: '66.0'
+  os_version: '12'
+  device: 'iPhone XS'
+  real_mobile: true
   browserstack.local: 'false'
-

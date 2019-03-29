@@ -1,4 +1,5 @@
 # SauceLabs Platform configuration tool: https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
+breakpoint: 'desktop'
 browser: 'safari'
 caps:
   platform: 'macOS 10.14'

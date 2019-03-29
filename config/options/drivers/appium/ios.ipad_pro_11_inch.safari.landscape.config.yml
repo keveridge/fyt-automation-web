@@ -1,0 +1,7 @@
+# Appium capabilities documentation: http://appium.io/docs/en/writing-running-appium/caps/
+breakpoint: 'desktop'
+caps:
+  deviceName: 'iPad Pro (11-inch)'
+  platformName: 'iOS'
+  platformVersion: '12.1'
+  browserName: 'Safari'
