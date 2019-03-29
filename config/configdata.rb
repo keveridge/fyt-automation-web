@@ -16,8 +16,13 @@ class ConfigData
         :local => 'options/drivers/local',
         :browserstack => 'options/drivers/browserstack',
         :saucelabs => 'options/drivers/saucelabs',
-        :lamdatest => 'options/drivers/lamdatest'
+        :lamdatest => 'options/drivers/lamdatest',
+        :appium => 'options/drivers/appium'
       }[driver.to_sym]
+    end
+
+    def is_remote?
+      driver.to_sym != :local ? true : false
     end
 
     def base_url
@@ -25,6 +30,14 @@ class ConfigData
           :dev => 'http://localhost:8081',
           :prod => 'http://demo.grandnode.com'
       }[environment.to_sym]
+    end
+
+    def breakpoint(config:)
+      (config.include?('breakpoint')) ? config['breakpoint'].to_sym : :desktop
+    end
+
+    def is_mobile?(config:)
+      breakpoint(config:config) == :mobile ? true : false
     end
 
     def default_caps
