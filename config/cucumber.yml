@@ -5,12 +5,13 @@
   saucelabs = "FYT_DRIVER=saucelabs"
   lamdatest = "FYT_DRIVER=lamdatest"
   local = "FYT_DRIVER=local"
+  appium = "FYT_DRIVER=appium"
   pretty_format = "-f pretty"
   debug = "--tags '@debug'"
   not_debug = "--tags 'not @debug'"
   env_prod = "FYT_ENVIRONMENT=prod"
-  mobile = "--tags 'not @desktop' FYT_MOBILE=true"
-  desktop = "--tags 'not @mobile' FYT_MOBILE=false"
+  mobile = "--tags 'not @desktop' LOCAL_CONFIG_NAME=iphone_x"
+  desktop = "--tags 'not @mobile'"
 %>
 default: <%= local %> <%= config_requires %> <%= desktop %> <%= full_execution %> <%= pretty_format %> <%= not_debug %>
 fast: <%= local %> <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= not_debug %>
@@ -19,4 +20,5 @@ browserstack: <%= browserstack %> <%= desktop %> <%= config_requires %>  <%= pre
 saucelabs: <%= saucelabs %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
 lamdatest: <%= lamdatest %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
 mobile: <%= local %> <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
+appium: <%= appium %> <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
 debug: <%= local %> <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= debug %>

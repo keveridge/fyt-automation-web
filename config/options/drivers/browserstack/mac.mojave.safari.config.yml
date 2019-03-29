@@ -1,4 +1,5 @@
 # BrowserStack Capabilities Generator Tool: https://www.browserstack.com/automate/capabilities
+breakpoint: 'desktop'
 caps:
   os: 'OS X'
   os_version: 'Mojave'

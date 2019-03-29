@@ -4,9 +4,9 @@ Before '@new_session' do
 end
 
 Before do
-  if IS_MOBILE # Force the resizing of a browser if it's a mobile test case
-    Capybara.page.driver.browser.manage.window.resize_to(488, 640)
-  elseif IS_REMOTE # Resize the window to maximum if this is a remotely run test
-    Capybara.page.driver.browser.manage.window.maximize
+  if ConfigData.driver.to_sym != :appium # Appium can't support these commands
+    if IS_REMOTE # Resize the window to maximum if this is a remotely run test
+      Capybara.page.driver.browser.manage.window.maximize
+    end
   end
 end

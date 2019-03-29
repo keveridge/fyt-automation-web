@@ -1,17 +1,13 @@
-require 'rspec'                         # Framework for test expectations
-require 'pry-byebug'                    # A runtime interactive debugging tool
 require_relative 'hooks'
 require_relative 'configdata'
+require 'rspec'                         # Framework for test expectations
+require 'pry-byebug'                    # A runtime interactive debugging tool
+require 'capybara/cucumber'                   # Capybara Cucumber support
+require 'selenium/webdriver'
+require 'prettyprint'
+require 'text-table'
 
-if ConfigData.driver.to_sym != :local # Only run for selenium grid / remote providers
-
-  CONFIG_NAME = ENV["#{ConfigData.driver.upcase}_CONFIG_NAME"] || 'windows.10.chrome' # Load the browser config
-  CONFIG = YAML.safe_load( # Load the browser and OS configuration for the remote driver
-            File.read(
-                File.join(
-                    File.dirname(__FILE__), "options/drivers/#{ConfigData.driver.downcase}/#{CONFIG_NAME}.config.yml")
-            )
-          )
+if ![:appium, :local].include?(ConfigData.driver.to_sym)
 
   USERNAME_VAR = "#{ConfigData.driver.upcase}_USERNAME"
   ACCESS_KEY_VAR = "#{ConfigData.driver.upcase}_ACCESS_KEY"
@@ -19,15 +15,38 @@ if ConfigData.driver.to_sym != :local # Only run for selenium grid / remote prov
   # Check for creds
   raise "The environment variable `#{USERNAME_VAR}` is not defined" unless ENV.has_key?(USERNAME_VAR)
   raise "The environment variable `#{ACCESS_KEY_VAR}` is not defined" unless ENV.has_key?(ACCESS_KEY_VAR)
-
 end
+
+default_config = (ConfigData.driver.to_sym == :local) ? 'local' : 'windows.10.chrome'
+CONFIG_NAME = ENV["#{ConfigData.driver.upcase}_CONFIG_NAME"] || default_config # Load the browser config
+
+CONFIG = YAML.safe_load( # Load the browser and OS configuration for the remote driver
+    File.read(
+        File.join(
+            File.dirname(__FILE__), "options/drivers/#{ConfigData.driver.downcase}/#{CONFIG_NAME}.config.yml")
+    )
+)
 
 require_relative ConfigData.driver_file # Run individual remote driver setup code
 
+
+AfterConfiguration do |config|
+  if config.formats.to_s.include? 'pretty' # If this is the pretty print format, output the configuration
+    puts [
+             ['Profiles:', config.profiles.first],
+             ['Driver:', ConfigData.driver],
+             ['Device:', CONFIG_NAME],
+             ['Breakpoint:', ConfigData.breakpoint(config:CONFIG)],
+             ['Environment:', ConfigData.environment],
+             ['Tags:', config.tag_expressions.join(', ')]
+    ].to_table
+  end
+end
+
 # Define constants
 BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
-IS_MOBILE = (ENV.has_key?('FYT_MOBILE') && ENV['FYT_MOBILE'] == 'true') ? true : false
-IS_REMOTE = (ConfigData.driver.to_sym != :local) ? true : false
+IS_MOBILE = ConfigData.is_mobile?(config:CONFIG)
+IS_REMOTE = ConfigData.is_remote?
 
 # Define the directories of variables to scan for Ruby files and load
 [

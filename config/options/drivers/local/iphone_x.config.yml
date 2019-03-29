@@ -1,0 +1,6 @@
+# Chrome Dev Tools, see: https://developers.google.com/web/tools/chrome-devtools/device-mode/
+breakpoint: 'mobile'
+caps:
+  chromeOptions:
+    mobileEmulation:
+      deviceName: "iPhone X"

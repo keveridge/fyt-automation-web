@@ -1,4 +1,5 @@
 # LamdaTest configuration tool: https://www.lambdatest.com/capabilities-generator/
+breakpoint: 'desktop'
 caps:
   browserName: 'chrome'
   version: '64.0'

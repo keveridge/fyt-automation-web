@@ -1,3 +1,5 @@
+require_relative '../page_objects/homepage'
+
 ######
 # Feature: Main navigation -> Background
 # Feature: Footer navigation -> Background
