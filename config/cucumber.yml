@@ -16,9 +16,9 @@
 default: <%= local %> <%= config_requires %> <%= desktop %> <%= full_execution %> <%= pretty_format %> <%= not_debug %>
 fast: <%= local %> <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= not_debug %>
 prod: <%= local %> <%= config_requires %> <%= desktop %> <%= env_prod %> <%= pretty_format %> <%= not_debug %>
-browserstack: <%= browserstack %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
-saucelabs: <%= saucelabs %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
-lamdatest: <%= lamdatest %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
+browserstack: <%= browserstack %> <%= env_prod %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
+saucelabs: <%= saucelabs %> <%= env_prod %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
+lamdatest: <%= lamdatest %> <%= env_prod %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
 mobile: <%= local %> <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
 appium: <%= appium %> <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
 debug: <%= local %> <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= debug %>
