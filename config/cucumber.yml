@@ -16,4 +16,4 @@ prod: <%= config_requires %> <%= desktop %> <%= env_prod %> <%= pretty_format %>
 browserstack: <%= browserstack %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
 saucelabs: <%= saucelabs %> <%= desktop %> <%= config_requires %>  <%= pretty_format %> <%= not_debug %>
 mobile: <%= config_requires %> <%= mobile %> <%= pretty_format %> <%= not_debug %>
-debug: <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= debug %>
+debug: <%= config_requires %> <%= desktop %> <%= pretty_format %> <%= debug %> <%= env_prod %>
