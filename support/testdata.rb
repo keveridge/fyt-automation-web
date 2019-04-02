@@ -12,6 +12,10 @@ class TestData
       }[type.to_sym]
     end
 
+    def valid_product_path
+      '/apple-macbook-pro-13-inch'
+    end
+
   end
 
 end

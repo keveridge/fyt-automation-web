@@ -25,15 +25,16 @@ Feature: Product detail
   Scenario: Product CTAs
 
     Then I see the following calls to action:
-      | add to cart quantity   |
-      | add to cart button    |
+      | add to cart quantity  |
+      | add to cart           |
       | add to wishlist       |
-      | email a friend button |
+      | add to compare        |
+      | email a friend        |
 
 
   Scenario: Product tabs
 
-    Then I see the following product tabs:
+    Then I see the following product navigation tabs:
       | description   |
       | product tags  |
       | reviews       |
@@ -52,7 +53,7 @@ Feature: Product detail
     Then I see one or more product tags
 
 
-  Scenarios: Reviews tag
+  Scenario: Reviews tag
 
     When I click the reviews tab
     Then I see an add review button
@@ -68,5 +69,3 @@ Feature: Product detail
       | phone         |
       | message       |
       | send button   |
-
-
