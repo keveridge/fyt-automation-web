@@ -7,6 +7,7 @@ class ProductDetailPage < Page
 
   include ProductDetail::ProductNavTabs
   include ProductDetail::ProductNavBreadcrumbs
+  include ProductDetail::ProductRelated
 
   # Verification methods
 

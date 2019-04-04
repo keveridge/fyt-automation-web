@@ -69,3 +69,18 @@ Feature: Product detail
       | phone         |
       | message       |
       | send button   |
+
+
+  Scenario: Related products
+
+    Then I see a 1 or more related products
+    And I see the following for each related product:
+      | image                       |
+      | add to cart button          |
+      | quick view button           |
+      | add to compare list button  |
+      | add to wishlist button      |
+      | name                        |
+      | review score                |
+      | price                       |
+

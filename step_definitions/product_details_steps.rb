@@ -119,3 +119,34 @@ Then /^I see the following form elements:$/ do |table|
     raise "Could not find `#{row.first}` field" unless page.has_product_nav_contact_field?(field:row.first)
   end
 end
+
+
+######
+# Scenario: Related products
+######
+
+Then /^I see a (\d+) or more related products$/ do |quantity|
+  page = Task.get_product_page
+  expect(page.related_products.count).to be >= quantity
+end
+
+And /^I see the following for each related product:$/ do |table|
+  page = Task.get_product_page
+
+  table.raw.each do |row|
+    method = {
+        'image' => 'has_image?',
+        'add to cart button' => 'has_add_to_cart_button?',
+        'quick view button' => 'has_quick_view_button?',
+        'add to compare list button' => 'has_compare_button?',
+        'add to wishlist button' => 'has_wishlist_button?',
+        'name' => 'has_name?',
+        'review score' => 'has_review_score?',
+        'price' => 'has_price?'
+    }[row.first]
+
+    page.related_products.each_with_index do |related_product, index|
+      raise "Could not find `#{row.first}` for product: #{index}" unless related_product.send(method)
+    end
+  end
+end
