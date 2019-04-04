@@ -2,6 +2,7 @@ require_relative 'modules/header_navigation'
 require_relative 'modules/search_autocomplete'
 require_relative 'modules/footer_navigation'
 require_relative 'modules/product_category_menu'
+require_relative 'modules/newsletter'
 
 class Page
 
@@ -12,6 +13,7 @@ class Page
   include FooterNavigation
   include SearchAutocomplete
   include ProductCategoryMenu
+  include Newsletter
 
   def initialize(page_path:nil)
     @page_path = page_path
