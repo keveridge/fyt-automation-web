@@ -1,10 +1,8 @@
 require_relative 'page.rb'
 
-class HomePage < Page
+class Apparel < Page
 
   def initialize()
-    super(page_path:'/')
+    super(page_path:'/apparel')
   end
-
 end
-
